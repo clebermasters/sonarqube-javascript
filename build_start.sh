@@ -1,7 +1,10 @@
-git clone https://github.com/clebermasters/sonarqube-javascript.git 
-cd sonarqube-javascript
-./buid.sh &
-start-sonar.sh
+# git clone https://github.com/clebermasters/sonarqube-javascript.git 
+# cd sonarqube-javascript
+
+./build.sh &
+./start-sonar.sh
+
+wait 
 
 echo "Access http://localhost:9000"
 
