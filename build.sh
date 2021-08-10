@@ -1,0 +1,1 @@
+docker build -t bitslovers.com/angular:v1 .
