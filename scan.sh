@@ -1,10 +1,12 @@
-export SONAR_HOST=172.20.0.1:9000
-export SONAR_TOKEN=241224e49b985a77d65041fd0a48471207efb9c1
+export SONAR_HOST=172.17.0.1:9000
+export SONAR_TOKEN=4d99943936480e09ff58fe46eb37ca6fc83554d7
 export REPO=$(pwd)/angular-project
+export CONFIG_FILE=$(pwd)/sonar-project.properties
 
 docker run \
     --rm \
     -e SONAR_HOST_URL="http://${SONAR_HOST}" \
     -e SONAR_LOGIN="${SONAR_TOKEN}" \
     -v "${REPO}:/usr/src" \
-    sonarsource/sonar-scanner-cli -Dproject.settings=./sonar-project.properties
+    -v $CONFIG_FILE:/opt/sonar-scanner/conf/sonar-scanner.properties \
+    sonarsource/sonar-scanner-cli
